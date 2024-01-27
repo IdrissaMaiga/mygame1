@@ -1,5 +1,5 @@
 console.log('beging')
-import { connect, io } from 'socket.io-client'
+import { connect, io } from './_snowpack/pkg/socket.io-client.js'
 
 const socket = io('http://localhost:3000')
 
