@@ -1,6 +1,4 @@
-const { messagemodel } = require('./message_model.js')
 const { instrument } = require('@socket.io/admin-ui')
-const e = require('express')
 const mongoose = require('mongoose')
 const error = require('mongoose/lib/error/index.js')
 const { set } = require('mongoose/lib/schemaType.js')
@@ -17,11 +15,38 @@ mongoose
 const PORT = process.env.PORT || 3000
 const io = require('socket.io')(PORT, {
   cors: {
-    origin: '*',
+    origin: [
+      'https://main--rockpaperscissorschat.netlify.app',
+      'https://main--preeminent-pothos-3b177e.netlify.app',
+      'https://admin.socket.io'
+    ],
     credentials: true
   }
 })
+messageSchema = new mongoose.Schema(
+  {
+    socket_id: {
+      type: String,
+      require: true
+    },
+    room_id: {
+      type: String,
+      require: true
+    },
 
+    message_single: {
+      type: String,
+      require: true
+    },
+    sent_time: {
+      type: String,
+      require: true
+    }
+  },
+  { timestamps: true }
+)
+
+messagemodel = mongoose.model('message', messageSchema)
 messagemodel
   .deleteMany({})
   .then(result => {
