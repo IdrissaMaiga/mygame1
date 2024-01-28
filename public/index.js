@@ -2,7 +2,7 @@ console.log('beging')
 import { connect, io } from './_snowpack/pkg/socket.io-client.js'
 
 const socket = io(
-  'https://69bc91ab-e1b6-47ca-a3b3-4eef8de18769-00-7hva236iytky.spock.replit.dev/'
+  'https://msgandplay.vercel.app'
 )
 
 let room_id = ''
