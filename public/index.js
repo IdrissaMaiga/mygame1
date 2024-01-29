@@ -2,7 +2,7 @@ console.log('beging')
 import { connect, io } from './_snowpack/pkg/socket.io-client.js'
 
 const socket = io(
-  'https://msgandplay.vercel.app'
+  'https://mygameserver.onrender.com'
 )
 
 let room_id = ''
